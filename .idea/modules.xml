@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lovediary.iml" filepath="$PROJECT_DIR$/.idea/modules/lovediary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lovediary_main.iml" filepath="$PROJECT_DIR$/.idea/modules/lovediary_main.iml" group="lovediary" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lovediary_test.iml" filepath="$PROJECT_DIR$/.idea/modules/lovediary_test.iml" group="lovediary" />
+    </modules>
+  </component>
+</project>
