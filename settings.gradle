@@ -1,2 +1,3 @@
-rootProject.name = 'lovediary'
+rootProject.name = 'junknotice'
 
+include 'junk-commons', 'junk-api'

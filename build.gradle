@@ -10,17 +10,31 @@ buildscript {
     }
 }
 
+allprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
+
+    repositories {
+        jcenter()
+    }
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
 task wrapper(type: Wrapper) {
     gradleVersion = '2.9'
     distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }
 
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'spring-boot'
+task stage(type: Copy, dependsOn: [clean, build, subprojects.build]) {
+    from subprojects.collect { it.tasks.withType(Jar) }
+    into "target"
+}
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+apply plugin: 'spring-boot'
 
 repositories {
     mavenCentral()
@@ -29,15 +43,15 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
 
+    compile project(":junk-api")
+
     compile("org.springframework.boot:spring-boot-starter-web")
     compile 'org.springframework.security:spring-security-web:4.1.0.RELEASE'
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
-    compile 'mysql:mysql-connector-java:5.1.31'
     compile("org.springframework.boot:spring-boot-devtools")
 
     testCompile "org.mockito:mockito-core:1.+"
 }
-
 
 buildscript {
     repositories {
