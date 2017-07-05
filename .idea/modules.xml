@@ -5,9 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/junk-api/junk-api.iml" filepath="$PROJECT_DIR$/.idea/modules/junk-api/junk-api.iml" group="junk-api" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/junk-api/junk-api_main.iml" filepath="$PROJECT_DIR$/.idea/modules/junk-api/junk-api_main.iml" group="junk-api" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/junk-api/junk-api_test.iml" filepath="$PROJECT_DIR$/.idea/modules/junk-api/junk-api_test.iml" group="junk-api" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/junk-commons/junk-commons.iml" filepath="$PROJECT_DIR$/.idea/modules/junk-commons/junk-commons.iml" group="junk-commons" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/junk-commons/junk-commons_main.iml" filepath="$PROJECT_DIR$/.idea/modules/junk-commons/junk-commons_main.iml" group="junk-commons" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/junk-commons/junk-commons_test.iml" filepath="$PROJECT_DIR$/.idea/modules/junk-commons/junk-commons_test.iml" group="junk-commons" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/junk-commons/junk-core.iml" filepath="$PROJECT_DIR$/.idea/modules/junk-commons/junk-core.iml" group="junk-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/junk-core/junk-notice-junk-core_main.iml" filepath="$PROJECT_DIR$/.idea/modules/junk-core/junk-notice-junk-core_main.iml" group="junk-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/junk-core/junk-notice-junk-core_test.iml" filepath="$PROJECT_DIR$/.idea/modules/junk-core/junk-notice-junk-core_test.iml" group="junk-core" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/junknotice.iml" filepath="$PROJECT_DIR$/.idea/modules/junknotice.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/junknotice_main.iml" filepath="$PROJECT_DIR$/.idea/modules/junknotice_main.iml" group="junknotice" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/junknotice_test.iml" filepath="$PROJECT_DIR$/.idea/modules/junknotice_test.iml" group="junknotice" />

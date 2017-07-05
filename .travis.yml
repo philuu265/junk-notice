@@ -4,3 +4,12 @@ jdk:
 
 before_install:
  - chmod +x gradlew
+
+after_success:
+ - ./gradlew cobertura coveralls
+
+notifications:
+  slack:
+    rooms:
+      - motoracker:xdOW6Oz1eMvrZLrHkRptiyYQ#general
+    on_success: always

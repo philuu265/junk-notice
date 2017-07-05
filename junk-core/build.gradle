@@ -1,7 +1,6 @@
 apply plugin: 'spring-boot'
 
 dependencies {
-    compile project(":junk-core")
 
     compile("org.springframework.boot:spring-boot-starter-web")
     compile 'org.springframework.security:spring-security-web:4.1.0.RELEASE'
@@ -10,4 +9,6 @@ dependencies {
     compile("org.springframework.boot:spring-boot-devtools")
 
     testCompile("junit:junit")
+    testCompile 'org.hamcrest:hamcrest-library'
+    testCompile 'org.mockito:mockito-core'
 }
