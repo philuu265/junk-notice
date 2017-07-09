@@ -1,4 +1,4 @@
-package com.junknotice.user;
+package com.junknotice.core.user;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package com.junknotice.user;
+package com.junknotice.core.user;
 
 import org.springframework.data.repository.CrudRepository;
 

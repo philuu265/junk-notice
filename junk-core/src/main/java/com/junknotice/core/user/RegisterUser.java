@@ -1,4 +1,4 @@
-package com.junknotice.user;
+package com.junknotice.core.user;
 
 /**
  * Created by philu on 6/23/2016.

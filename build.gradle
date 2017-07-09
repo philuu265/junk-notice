@@ -12,8 +12,6 @@ plugins {
     id 'com.github.kt3k.coveralls' version '2.8.1'
 }
 
-cobertura.coverageFormats = ['html', 'xml']
-
 group 'philuu'
 version '1.0-SNAPSHOT'
 
@@ -22,6 +20,13 @@ allprojects {
     apply plugin: 'java'
     apply plugin: 'eclipse'
     apply plugin: 'idea'
+    apply plugin: 'spring-boot'
+    apply plugin: 'cobertura'
+
+    cobertura {
+        coverageIgnoreTrivial = true
+    }
+
 
     repositories {
         jcenter()
@@ -29,6 +34,18 @@ allprojects {
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
+
+    dependencies {
+
+        compile "org.springframework.boot:spring-boot-starter-web"
+        compile 'org.springframework.security:spring-security-web:4.1.0.RELEASE'
+        compile "org.springframework.boot:spring-boot-starter-data-jpa"
+        compile "org.springframework.boot:spring-boot-devtools"
+
+        testCompile "junit:junit"
+        testCompile 'org.hamcrest:hamcrest-library'
+        testCompile 'org.mockito:mockito-core'
+    }
 }
 
 task wrapper(type: Wrapper) {
@@ -41,22 +58,12 @@ task stage(type: Copy, dependsOn: [clean, build, subprojects.build]) {
     into "target"
 }
 
-apply plugin: 'spring-boot'
+def subCoberturaFiles = subprojects.collect { new File(it.projectDir, '/build/cobertura/cobertura.ser') }
 
-repositories {
-    mavenCentral()
+cobertura {
+    coverageFormats = [ 'xml', 'html' ]
+    coverageSourceDirs = subprojects.sourceSets.main.allSource.srcDirs.flatten()
+    coverageMergeDatafiles = subCoberturaFiles
 }
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-
-    compile project(":junk-api")
-
-    compile("org.springframework.boot:spring-boot-starter-web")
-    compile 'org.springframework.security:spring-security-web:4.1.0.RELEASE'
-    compile("org.springframework.boot:spring-boot-starter-data-jpa")
-    compile("org.springframework.boot:spring-boot-devtools")
-
-    testCompile 'org.hamcrest:hamcrest-library'
-    testCompile 'org.mockito:mockito-core'
-}
+test.dependsOn(subprojects.test)

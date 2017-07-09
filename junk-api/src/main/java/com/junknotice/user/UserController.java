@@ -1,5 +1,7 @@
 package com.junknotice.user;
 
+import com.junknotice.core.user.User;
+import com.junknotice.core.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
