@@ -50,4 +50,23 @@ public class User {
     public void setPwd_hash(String pwd_hash) {
         this.pwd_hash = pwd_hash;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (getUsername() != null ? !getUsername().equals(user.getUsername()) : user.getUsername() != null)
+            return false;
+        return getEmail() != null ? getEmail().equals(user.getEmail()) : user.getEmail() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getUsername() != null ? getUsername().hashCode() : 0;
+        result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
+        return result;
+    }
 }

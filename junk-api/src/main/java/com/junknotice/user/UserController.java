@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * Created by philu on 6/4/2016.
  */
@@ -19,17 +21,18 @@ public class UserController {
     private UserService service;
 
     @Autowired
-    public void setService(UserService service) {
+    public UserController(UserService service) {
         this.service = service;
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity register(@RequestBody User user) {
+    public ResponseEntity register(@RequestBody RegisterUser userDto) {
+        User user = userDto.toUserEntity();
         return ResponseEntity.ok(service.save(user));
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity getAll() {
-        return ResponseEntity.ok(service.findAll());
+    public List<User> getAll() {
+        return service.findAll();
     }
 }

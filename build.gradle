@@ -41,11 +41,16 @@ allprojects {
         compile 'org.springframework.security:spring-security-web:4.1.0.RELEASE'
         compile "org.springframework.boot:spring-boot-starter-data-jpa"
         compile "org.springframework.boot:spring-boot-devtools"
+        compile "org.projectlombok:lombok:1.16.16"
 
         testCompile "junit:junit"
         testCompile 'org.hamcrest:hamcrest-library'
         testCompile 'org.mockito:mockito-core'
     }
+}
+
+dependencies {
+    compile 'mysql:mysql-connector-java:5.1.31'
 }
 
 task wrapper(type: Wrapper) {

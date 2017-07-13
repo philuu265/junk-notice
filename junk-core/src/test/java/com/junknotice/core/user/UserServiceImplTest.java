@@ -12,6 +12,8 @@ import java.util.List;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -58,4 +60,35 @@ public class UserServiceImplTest {
         assertThat(service.findAll(), equalTo(users));
     }
 
+    @Test
+    public void returnFalseWhenEmailDoesNotExist() throws Exception {
+        String email = "phi.luunhat@gmail.com";
+        when(repository.findByEmail(email)).thenReturn(null);
+        assertFalse(service.existsEmail(email));
+    }
+
+    @Test
+    public void returnTrueWhenEmailExist() throws Exception {
+        User user = new User();
+        user.setEmail("phi.luunhat@gmail.com");
+        when(repository.findByEmail(user.getEmail())).thenReturn(user);
+        assertTrue(service.existsEmail(user.getEmail()));
+    }
+
+
+    @Test
+    public void returnFalseWhenUsernameDoesNotExist() throws Exception {
+        String username = "philuu265";
+        when(repository.findByUsername(username)).thenReturn(null);
+        assertFalse(service.existsUsername(username));
+    }
+
+    @Test
+    public void returnTrueWhenUsernameExist() throws Exception {
+        User user = new User();
+        user.setEmail("phi.luunhat@gmail.com");
+        user.setUsername("philuu265");
+        when(repository.findByUsername(user.getUsername())).thenReturn(user);
+        assertTrue(service.existsUsername(user.getUsername()));
+    }
 }
